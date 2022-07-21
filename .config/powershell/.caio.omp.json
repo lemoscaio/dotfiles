@@ -9,8 +9,8 @@
           "foreground": "#ffffff",
           "leading_diamond": "\u256d\u2500\ue0b6",
           "style": "diamond",
-          "template": " {{ .Name }} ",
-          "type": "shell"
+          "template": "{{ .Icon }}",
+          "type": "os"
         },
         {
           "background": "#ef5350",
@@ -51,36 +51,21 @@
           "style": "powerline",
           "template": " {{ .HEAD }} {{ if .Working.Changed }}{{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}<#ef5350> \uf046 {{ .Staging.String }}</>{{ end }} ",
           "type": "git"
-        }
-      ],
-      "type": "prompt"
-    },
-    {
-      "alignment": "right",
-      "segments": [
+        },
         {
           "background": "#303030",
           "foreground": "#3C873A",
           "leading_diamond": " \ue0b6",
+          "powerline_symbol": "\ue0b0",
           "properties": {
             "fetch_package_manager": true,
             "npm_icon": " <#cc3a3a>\ue5fa</> ",
             "yarn_icon": " <#348cba>\uf61a</>"
           },
-          "style": "diamond",
-          "template": "\ue718 {{ if .PackageManagerIcon }}{{ .PackageManagerIcon }} {{ end }}{{ .Full }}",
+          "style": "powerline",
+          "template": " \ue718{{ if .PackageManagerIcon }}{{ .PackageManagerIcon }}{{ end }}{{ .Full }} ",
           "trailing_diamond": "\ue0b4",
           "type": "node"
-        },
-        {
-          "background": "#40c4ff",
-          "foreground": "#ffffff",
-          "invert_powerline": true,
-          "leading_diamond": " \ue0b6",
-          "style": "diamond",
-          "template": " \uf5ef {{ .CurrentDate | date .Format }} ",
-          "trailing_diamond": "\ue0b4",
-          "type": "time"
         }
       ],
       "type": "prompt"

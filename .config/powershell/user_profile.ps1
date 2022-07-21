@@ -6,7 +6,7 @@ Import-Module posh-git
 # I have a custom theme:
 oh-my-posh init pwsh --config ~/.config/powershell/.caio.omp.json | Invoke-Expression
 # I have an out-of-box theme:
-# oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\jandedobbeleer.omp.json" | Invoke-Expression
+#oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\montys.omp.json" | Invoke-Expression
 
 #$omp_config = Join-Path $PSScriptRoot ".\caio.omp.json"
 #oh-my-posh --init --shell pwsh --config $omp_config | Invoke-Expression

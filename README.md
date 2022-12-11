@@ -10,80 +10,112 @@
 
 1.  ### Scope:
 
+    - Install scope
+
+        ```powershell
         Set-ExecutionPolicy RemoteSigned -Scope CurrentUser 
         # Optional: Needed to run a remote script the first time
 
         irm get.scoop.sh | iex
+        ```
 
-1.  ### VIM:
+2.  ### VIM:
 
-        scoop install neovim gcc
+    - Install NeoVIM
+
+		```powershell
+		scoop install neovim gcc
+		```
 
 1.  ### Open Powershell Profile Config:
 
-    - One of the following:
+    - Create the powershell config file and point it to the file inside .config/powershell:
  
+        ```powershell
         nvim $PROFILE.CurrentUserCurrentHost
+        ```
+        or 
+        ```powershell
         notepad $PROFILE.CurrentUserCurrentHost
+        ```
 
     - Inside the file, insert the exactly line:
 
-        . $env:USERPROFILE\.config\powershell\user_profile.ps1
+        . $env:USERPROFILE\\.config\powershell\user_profile.ps1
 
     - Close the file and save (:wqa for saving in VIM)
   
-1. ### Oh My Posh:
+2. ### Oh My Posh:
 
-        Install-Module posh-git -Scope CurrentUser -Force
+	- Install the Oh My Posh module:
 
-        winget install JanDeDobbeleer.OhMyPosh -s winget
-   - (different from the devasalife video but a new way to install oh-my-posh, further info: https://ohmyposh.dev/docs/migrating)
+		```powershell
+		Install-Module posh-git -Scope CurrentUser -Force
+		winget install JanDeDobbeleer.OhMyPosh -s winget
+		```
 
-    Change the theme inside the user_profile.ps1 file or enable a custom theme by adding and removing the # on the correct lines.
+		That's different from the devasalife video but it's the new way to install oh-my-posh, further info on: https://ohmyposh.dev/docs/migrating.
 
-1. ### Install Powershell Modules:
+   - Change the theme inside the user_profile.ps1 file or enable a custom theme by adding and removing the # on the correct lines.
+
+3. ### Install Powershell Modules:
 
    - Terminal Icons: 
 
-            Install-Module -Name Terminal-Icons -Repository PSGallery -Force
-      - (This module is imported automatically on user_profile.ps1)
+		```powershell
+		Install-Module -Name Terminal-Icons -Repository PSGallery -Force
+		```
+      (This module is imported automatically on user_profile.ps1)
 
    - Z: 
 
-           Install-Module -Name z -Force
+		```powershell
+		Install-Module -Name z -Force
+		```
 
    - PSReadLine - Autocomplete
 
-           Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -Force -SkipPublisherCheck
+		```powershell
+		Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -Force -SkipPublisherCheck
+		```
+
+		Probably PSReadLine is already installed on Powershell if you're using a recent version of it.
 
    - PSFzf:
 
      - First, install fzf with scoop:
 
-           scoop install fzf
+		```powershell
+		scoop install fzf
+		```
 
      - Then:
      
-           Install-Module -Name PSFzf -Scope CurrentUser -Force
+		```powershell
+		Install-Module -Name PSFzf -Scope CurrentUser -Force
+		```
 
 ### Additional info
 
 - To use the same repository folder after cloning, you need to create a symbolic link to each file/folder:
 
-		new-item -itemtype symboliclink -path <to> -name powershell -value <from>
+	```powershell 
+	new-item -itemtype symboliclink -path <to> -name powershell -value <from>
+	```
 
   - where: 
 
-	-name : the name of the created folder
+	`-name` : the name of the created folder
 
-	-path : where the folder will be created
+	`-path` : where the folder will be created
 
-	-value : where the original folder is
+	`-value` : where the original folder is
 
   - Example: 
 
-		new-item -itemtype symboliclink -path C:\Users\caio_\.config\ -name powershell -value   C:\Users\caio_\dotfiles\.config\powershell
-
+	```powershell
+	new-item -itemtype symboliclink -path C:\Users\caio_\.config\ -name powershell -value   C:\Users\caio_\dotfiles\.config\powershell
+	```
 
 - Some configuration lines, such as "Set-PSReadLineOption -PredictionSource History", is set inside user_profile.ps1 and loaded when Powershell opens.
 

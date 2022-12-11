@@ -3,25 +3,26 @@
 ## How To Install (Windows):
 
 1. ### Powershell 
+
    - Download Hack font from Nerd Fonts
    - Change the font on Windows Terminal configuration
    - Activate the acrilic background and set the opacity to 50%
-   - Duplicate the One Half Dark theme on PowerShell settings.json (openning via terminal) and change the "background" to "#001B26".
+   - Duplicate the One Half Dark theme on PowerShell settings.json (openning via terminal) and change the "background" to `#001B26`.
 
 1.  ### Scope:
 
-    - Install scope
+	- Install scope
 
-        ```powershell
-        Set-ExecutionPolicy RemoteSigned -Scope CurrentUser 
-        # Optional: Needed to run a remote script the first time
+		```powershell
+		Set-ExecutionPolicy RemoteSigned -Scope CurrentUser 
+		# Optional: Needed to run a remote script the first time
+		
+		irm get.scoop.sh | iex
+		```
 
-        irm get.scoop.sh | iex
-        ```
+1.  ### VIM:
 
-2.  ### VIM:
-
-    - Install NeoVIM
+	- Install NeoVIM
 
 		```powershell
 		scoop install neovim gcc
@@ -29,7 +30,7 @@
 
 1.  ### Open Powershell Profile Config:
 
-    - Create the powershell config file and point it to the file inside .config/powershell:
+	- Create the powershell config file and point it to the file inside .config/powershell:
  
         ```powershell
         nvim $PROFILE.CurrentUserCurrentHost
@@ -39,13 +40,13 @@
         notepad $PROFILE.CurrentUserCurrentHost
         ```
 
-    - Inside the file, insert the exactly line:
+	- Inside the file, insert the exactly line:
 
-        . $env:USERPROFILE\\.config\powershell\user_profile.ps1
+			`. $env:USERPROFILE\\.config\powershell\user_profile.ps1`
 
-    - Close the file and save (:wqa for saving in VIM)
+	- Close the file and save (:wqa for saving in VIM)
   
-2. ### Oh My Posh:
+1. ### Oh My Posh:
 
 	- Install the Oh My Posh module:
 
@@ -56,24 +57,24 @@
 
 		That's different from the devasalife video but it's the new way to install oh-my-posh, further info on: https://ohmyposh.dev/docs/migrating.
 
-   - Change the theme inside the user_profile.ps1 file or enable a custom theme by adding and removing the # on the correct lines.
+	- Change the theme inside the user_profile.ps1 file or enable a custom theme by adding and removing the # on the correct lines.
 
-3. ### Install Powershell Modules:
+1. ### Install Powershell Modules:
 
-   - Terminal Icons: 
+	- Terminal Icons: 
 
 		```powershell
 		Install-Module -Name Terminal-Icons -Repository PSGallery -Force
 		```
-      (This module is imported automatically on user_profile.ps1)
+	  (This module is imported automatically on user_profile.ps1)
 
-   - Z: 
+	- Z: 
 
 		```powershell
 		Install-Module -Name z -Force
 		```
 
-   - PSReadLine - Autocomplete
+	- PSReadLine - Autocomplete
 
 		```powershell
 		Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -Force -SkipPublisherCheck
@@ -83,13 +84,13 @@
 
    - PSFzf:
 
-     - First, install fzf with scoop:
+	 - First, install fzf with scoop:
 
 		```powershell
 		scoop install fzf
 		```
 
-     - Then:
+	 - Then:
      
 		```powershell
 		Install-Module -Name PSFzf -Scope CurrentUser -Force
@@ -103,25 +104,24 @@
 	new-item -itemtype symboliclink -path <to> -name powershell -value <from>
 	```
 
-  - where: 
+	- where: 
 
-	`-name` : the name of the created folder
+		`-name` : the name of the created folder
+		
+		`-path` : where the folder will be created
+		
+		`-value` : where the original folder is
 
-	`-path` : where the folder will be created
+	- Example: 
 
-	`-value` : where the original folder is
-
-  - Example: 
-
-	```powershell
-	new-item -itemtype symboliclink -path C:\Users\caio_\.config\ -name powershell -value   C:\Users\caio_\dotfiles\.config\powershell
-	```
+		```powershell
+		new-item -itemtype symboliclink -path C:\Users\caio_\.config\ -name powershell -value   C:\Users\caio_\dotfiles\.config\powershell
+		```
 
 - Some configuration lines, such as "Set-PSReadLineOption -PredictionSource History", is set inside user_profile.ps1 and loaded when Powershell opens.
 
- - [In case of fire, this is the video where I learned it all from](https://www.youtube.com/watch?v=5-aK2_WwrmM)
+- [In case of fire, this is the video where I learned it all from](https://www.youtube.com/watch?v=5-aK2_WwrmM)
 
-#
 
 ## How To Install (Linux):
 

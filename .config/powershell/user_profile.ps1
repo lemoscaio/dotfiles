@@ -15,11 +15,11 @@ oh-my-posh init pwsh --config ~/.config/powershell/.caio.omp.json | Invoke-Expre
 Import-Module -Name Terminal-Icons
 
 # PSReadLine
-Set-PSReadLineOption -EditMode Emacs
-Set-PSReadLineOption -BellStyle None
-Set-PSReadLineKeyHandler -Chord 'Ctrl+d' -Function DeleteChar
-Set-PSReadLineOption -PredictionSource History
-Set-PSReadLineOption -PredictionViewStyle ListView
+ Set-PSReadLineOption -EditMode Emacs
+ Set-PSReadLineOption -BellStyle None
+ Set-PSReadLineKeyHandler -Chord 'Ctrl+d' -Function DeleteChar
+ Set-PSReadLineOption -PredictionSource History
+ Set-PSReadLineOption -PredictionViewStyle ListView
 
 # =============================================================================
 #
@@ -115,8 +115,10 @@ Set-Alias -Name z -Value __zoxide_z -Option AllScope -Scope Global -Force
 Set-Alias -Name zi -Value __zoxide_zi -Option AllScope -Scope Global -Force
 
 # Fzf
-#Import-Module PSFzf
-#Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
+Import-Module PSFzf
+Set-PsFzfOption -PSReadlineChordProvider 'Ctrl+f' -PSReadlineChordReverseHistory 'Ctrl+r'
+Set-PSReadLineKeyHandler -Key Tab -ScriptBlock { Invoke-FzfTabCompletion }
+Set-PsFzfOption -TabExpansion
 
 # Env
 #$env:GIT_SSH = "C:\Windows\system32\OpenSSH\ssh.exe"

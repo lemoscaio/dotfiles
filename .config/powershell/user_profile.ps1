@@ -130,6 +130,7 @@ function tt { npm run test }
 function dev { npm run dev }
 function strt {npm run start }
 Set-Alias cc 'cls'
+function gw { git config --get-all user.email } 
 #Set-Alias g git
 #Set-Alias grep findstr
 #Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'

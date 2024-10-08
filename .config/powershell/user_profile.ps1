@@ -6,7 +6,7 @@
 # I have a custom theme:
 oh-my-posh init pwsh --config ~/.config/powershell/.caio.omp.json | Invoke-Expression
 # I have an out-of-box theme:
-#oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\montys.omp.json" | Invoke-Expression
+# oh-my-posh init pwsh --config "$env:POSH_THEMES_PATH\montys.omp.json" | Invoke-Expression
 
 #$omp_config = Join-Path $PSScriptRoot ".\caio.omp.json"
 #oh-my-posh --init --shell pwsh --config $omp_config | Invoke-Expression
@@ -141,4 +141,12 @@ function gw { git config --get-all user.email }
 #function which ($command) {
 #  Get-Command -Name $command -ErrorAction SilentlyContinue |
 #    Select-Object -ExpandProperty Path -ErrorAction SilentlyContinue
+#}
+
+
+#function Prompt {
+#    $lastPath = (Get-Location).Path | Split-Path -Leaf
+#    $parentPath = (Get-Location).Path | Split-Path -Parent | Split-Path -Leaf
+#    $combinedPath = Join-Path $parentPath $lastPath
+#    $host.ui.RawUI.WindowTitle = $combinedPath
 #}

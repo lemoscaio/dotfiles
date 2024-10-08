@@ -1,5 +1,6 @@
 {
   "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "console_title_template": "{{.Folder}}{{if .Root}} :: root{{end}} :: {{.Shell}}",
   "blocks": [
     {
       "alignment": "left",
@@ -66,6 +67,28 @@
           "template": " \ue718{{ if .PackageManagerIcon }}{{ .PackageManagerIcon }}{{ end }}{{ .Full }} ",
           "trailing_diamond": "\ue0b4",
           "type": "node"
+        },
+        {
+          "type": "status",
+          "style": "diamond",
+          "foreground": "#ffffff",
+          "background": "#00897b",
+          "background_templates": [
+            "{{ if .Error }}#e91e63{{ end }}"
+          ],
+          "trailing_diamond": "",
+          "template": "<#193549></>  ",
+          "properties": {
+            "always_enabled": true
+          }
+        },
+        {
+          "type": "python",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "foreground": "#100e23",
+          "background": "#906cff",
+          "template": "  {{ .Full }} "
         }
       ],
       "type": "prompt"
